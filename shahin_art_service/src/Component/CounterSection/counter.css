@@ -1,0 +1,24 @@
+.counterMain {
+    position: relative;
+  }
+  
+  .counterName {
+    font-size: 1.5rem;
+    font-weight: normal;
+    color: #000;
+    position: absolute;
+    margin: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: sans-serif;
+  }
+  
+  .counterNumber {
+    font-size: 7rem;
+    font-weight: bold;
+    color: #D4AF37;
+    margin: 0;
+    font-family: sans-serif;
+  }
+  

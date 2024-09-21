@@ -1,0 +1,42 @@
+.productDetails {
+    background-color: #d4af37;
+    color: #333;
+  }
+  
+
+
+  .productSection {
+    padding: 0 1rem;
+  }
+  
+  .detailSection {
+    padding: 2rem;
+    border-radius: 8px;
+  }
+
+  
+  .detailSection ul li {
+    font-size: 1rem;
+    /* padding: 0.5rem 0; */
+  }
+  
+  .readMore {
+    background-color: #333;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .readMore:hover {
+    background-color: #000;
+  }
+  
+  .productImage {
+    width: 100%;
+    border-radius: 2px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  

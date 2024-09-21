@@ -1,0 +1,80 @@
+.hero-slider {
+  position: relative;
+  width: 100%;
+}
+
+.bannerContent.hero {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  z-index: 10;
+  padding: 2rem 2rem;
+  width: 80%;
+}
+
+.banner {
+  background-image: url(../../Images/banner.png);
+  width: 100%;
+  background-size: contain;
+  background-size: cover;
+  text-align: center;
+  padding: 7rem 10rem;
+}
+
+.bannerLogo {
+  height: 200px;
+  width: 200px;
+}
+
+.bannerHeading {
+  font-family: "Dancing Script", cursive;
+  color: red;
+  text-shadow: 2px 2px 5px #d4af37d7;
+  font-size: 5rem;
+  margin-top: 2rem;
+}
+
+.bannerSubHeading {
+  background: #d4af37;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+@media only screen and (max-width: 900px) {
+  .banner{
+    padding: 0;
+  }
+  .hero-slider{
+    display: flex;
+    justify-content: center;
+  }
+  .bannerContent {
+    padding: 1rem 1rem;
+  }
+
+  .bannerLogo {
+    display: none;
+  }
+
+  .bannerHeading {
+    font-size: 3rem;
+  }
+
+  .bannerSubHeading {
+    font-size: 1rem;
+  }
+
+  .bannerContent.hero {
+    position: relative;
+    transform: none;
+    padding: 0rem;
+    top: 0;
+    left: 0;
+  }
+  /* .slick-slider.slick-initialized {
+    display: none;
+  } */
+}

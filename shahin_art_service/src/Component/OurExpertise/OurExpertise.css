@@ -1,0 +1,16 @@
+.expertiseContent{
+    padding: 0rem 3rem;
+}
+
+.expertise_cols{
+    margin-bottom: 3rem;
+}
+.facilities{
+    background-color: #d4af37;
+}
+
+@media only screen and (max-width:768px) {
+    .expertiseContent{
+        padding: 2rem;
+    }
+}

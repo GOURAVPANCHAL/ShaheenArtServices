@@ -1,0 +1,27 @@
+.footerMain{
+  padding: 3rem 0rem 1rem;
+}
+.footerHeading {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+}
+
+.footerTabs {
+  list-style-type: none;
+}
+.footerTabs i {
+  color: #d4af37;
+}
+
+.footerTabs li {
+  margin-bottom: 0.8rem;
+}
+.companyLink{
+  font-size: 1.1rem;
+}
+.companyLink a{
+  color: #d4af37;
+  text-decoration: none;
+}
