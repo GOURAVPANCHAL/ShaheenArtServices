@@ -10,7 +10,7 @@ const AddProduct = () => {
     const [categoryData, setCategoryData] = useState([])
     const getCategoryData = async () => {
         try {
-            const res = await axios.get("http://localhost:8000/api/get-all-category")
+            const res = await axios.get("https://www.api.shaheenarts.in/api/get-all-category")
             if (res.status === 200) {
                 setCategoryData(res.data.data.reverse())
             }
@@ -48,7 +48,7 @@ const AddProduct = () => {
         formData.append('productDetails', content);
         formData.append('productImage', data.productImage);
         try {
-            await axios.post('http://localhost:8000/api/create-product', formData, {
+            await axios.post('https://www.api.shaheenarts.in/api/create-product', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }

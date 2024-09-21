@@ -16,7 +16,7 @@ const EditCategory = () => {
     useEffect(() => {
         const fetchCategory = async () => {
             try {
-                const response = await axios.get(`http://localhost:8000/api/get-single-category/${id}`);
+                const response = await axios.get(`https://www.api.shaheenarts.in/api/get-single-category/${id}`);
                 const { categoryName, categoryImage } = response.data.data;
                 setCategoryName(categoryName);
                 setExistingImageUrl(categoryImage); // Store the existing image URL
@@ -41,7 +41,7 @@ const EditCategory = () => {
             }
 
             // Send the request to the backend
-            const response = await axios.put(`http://localhost:8000/api/update-category/${id}`, formData, {
+            const response = await axios.put(`https://www.api.shaheenarts.in/api/update-category/${id}`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }

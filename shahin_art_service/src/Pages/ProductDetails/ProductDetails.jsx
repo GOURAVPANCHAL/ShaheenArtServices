@@ -27,7 +27,7 @@ const ProductDetails = () => {
     const getAllProduct = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:8000/api/get-all-products"
+          "https://www.api.shaheenarts.in/api/get-all-products"
         );
         setAllProducts(res.data.data);
       } catch (error) {
@@ -41,7 +41,7 @@ const ProductDetails = () => {
     const fetchProducts = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8000/api/get-single-product/name/${formattedProductName}`
+          `https://www.api.shaheenarts.in/api/get-single-product/name/${formattedProductName}`
         );
         setProducts(response.data.data);
       } catch (error) {

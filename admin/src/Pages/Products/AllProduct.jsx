@@ -13,7 +13,7 @@ const AllProduct = () => {
     const fetchProducts = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:8000/api/get-all-products"
+          "https://www.api.shaheenarts.in/api/get-all-products"
         );
         if (res.status === 200) {
           setProducts(res.data.data);
@@ -31,7 +31,7 @@ const AllProduct = () => {
   const handleDelete = async (productId) => {
     try {
       await axios.delete(
-        `http://localhost:8000/api/delete-product/${productId}`
+        `https://www.api.shaheenarts.in/api/delete-product/${productId}`
       );
       setProducts(products.filter((product) => product._id !== productId));
       toast.success("Product deleted successfully!");

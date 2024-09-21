@@ -41,7 +41,7 @@ const AddCategory = () => {
         }
 
         try {
-            const response = await axios.post('http://localhost:8000/api/create-category', formData, {
+            const response = await axios.post('https://www.api.shaheenarts.in/api/create-category', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }

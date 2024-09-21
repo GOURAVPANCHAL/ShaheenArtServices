@@ -21,7 +21,7 @@ const Product = () => {
     const fetchProducts = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8000/api/get-product-by-category/${formattedCategoryName}`
+          `https://www.api.shaheenarts.in/api/get-product-by-category/${formattedCategoryName}`
         );
         setProducts(response.data.data);
       } catch (error) {

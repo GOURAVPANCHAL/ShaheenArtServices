@@ -10,7 +10,7 @@ const AllCategory = () => {
 
   const getApiData = async () => {
     try {
-      const res = await axios.get("http://localhost:8000/api/get-all-category");
+      const res = await axios.get("https://www.api.shaheenarts.in/api/get-all-category");
       if (res.status === 200) {
         setData(res.data.data.reverse());
       }
@@ -25,7 +25,7 @@ const AllCategory = () => {
   const deleteRecord = async (id) => {
     try {
       const res = await axios.delete(
-        "http://localhost:8000/api/delete-category/" + id
+        "https://www.api.shaheenarts.in/api/delete-category/" + id
       );
       console.log(res);
       if (res.status === 200) {

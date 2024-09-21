@@ -24,7 +24,7 @@ const EditProduct = () => {
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-                const res = await axios.get(`http://localhost:8000/api/get-single-product/${id}`);
+                const res = await axios.get(`https://www.api.shaheenarts.in/api/get-single-product/${id}`);
                 if (res.status === 200) {
                     setProduct(res.data.data);
                     setContent(res.data.data.productDetails); // Initialize content for JoditEditor
@@ -39,7 +39,7 @@ const EditProduct = () => {
 
         const fetchCategories = async () => {
             try {
-                const res = await axios.get("http://localhost:8000/api/get-all-category"); // Adjust the endpoint if needed
+                const res = await axios.get("https://www.api.shaheenarts.in/api/get-all-category"); // Adjust the endpoint if needed
                 if (res.status === 200) {
                     setCategoryData(res.data.data);
                 }
@@ -82,7 +82,7 @@ const EditProduct = () => {
                 formData.append('productImage', product.productImage);
             }
 
-            const res = await axios.put(`http://localhost:8000/api/update-product/${id}`, formData, {
+            const res = await axios.put(`https://www.api.shaheenarts.in/api/update-product/${id}`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }

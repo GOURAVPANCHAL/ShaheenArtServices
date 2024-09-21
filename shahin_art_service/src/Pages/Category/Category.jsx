@@ -10,7 +10,7 @@ const Category = () => {
 
     const fetchCategory = async () =>{
       try {
-       const res = await axios.get("http://localhost:8000/api/get-all-category")
+       const res = await axios.get("https://www.api.shaheenarts.in/api/get-all-category")
         console.log(res.data.data)
         setCategories(res.data.data.reverse());
       } catch (error) {
