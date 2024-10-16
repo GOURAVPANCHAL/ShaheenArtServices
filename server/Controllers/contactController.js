@@ -5,6 +5,7 @@ const Contact = require("../Models/CotactModel");
 const createContact = async (req, res) => {
   try {
     const { firstname, lastname, email, phonenumber, subject, message } = req.body;
+    console.log(req.body)
 
     // Validate required fields
     if (!firstname || !lastname || !email || !phonenumber || !subject || !message) {

@@ -83,7 +83,7 @@
 
 @media only screen and (max-width: 900px) {
   .banner {
-    padding: 0;
+    padding: 2rem;
   }
 
   .hero-slider {

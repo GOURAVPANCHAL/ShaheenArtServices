@@ -1,15 +1,18 @@
 import React, { useState } from "react";
 import "./getintouch.css";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css'; // Import the CSS for toasts
 
 const GetInTouch = () => {
   // State to store form data
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
+    firstname: "",
+    lastname: "",
     email: "",
-    phone: "",
-    inquiryType: "",
+    phonenumber: "",
+    subject: "",
     message: "",
   });
 
@@ -22,10 +25,28 @@ const GetInTouch = () => {
   };
 
   // Handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
-    // Add form submission logic here
+    try {
+      const res = await axios.post("https://www.api.shaheenarts.in/api/send-contact", formData);
+      console.log(res);
+
+      // Show success toast message
+      toast.success("Form submitted successfully!");
+
+      // Reset form data to blank
+      setFormData({
+        firstname: "",
+        lastname: "",
+        email: "",
+        phonenumber: "",
+        subject: "",
+        message: "",
+      });
+    } catch (error) {
+      console.log(error);
+      toast.error("Form submission failed!"); // In case of error
+    }
   };
 
   return (
@@ -50,17 +71,19 @@ const GetInTouch = () => {
                 <ul className="getinTouchUl">
                   <li>
                     <Link to={"#"}>
-                      <i class="bi bi-telephone-outbound-fill"></i> 9315649785
+                      <i className="bi bi-telephone-outbound-fill"></i> 9315649785
                     </Link>
                   </li>
                   <li>
                     <Link to={"#"}>
-                      <i class="bi bi-envelope-open-fill"></i> ansari@shaheenarts.in
+                      <i className="bi bi-envelope-open-fill"></i>{" "}
+                      ansari@shaheenarts.in
                     </Link>
                   </li>
                   <li>
                     <Link to={"#"}>
-                      <i class="bi bi-geo-alt-fill"></i> 2318, Mandir Street, Kucha Chellan, Darya Ganj, Delhi, 110002
+                      <i className="bi bi-geo-alt-fill"></i> 2318, Mandir Street,
+                      Kucha Chellan, Darya Ganj, Delhi, 110002
                     </Link>
                   </li>
                 </ul>
@@ -68,17 +91,17 @@ const GetInTouch = () => {
               <div className="socialmedia d-flex gap-3 pt-5">
                 <div className="social-links">
                   <Link to={"/"}>
-                    <i class="bi bi-twitter"></i>
+                    <i className="bi bi-twitter"></i>
                   </Link>
                 </div>
                 <div className="social-links">
                   <Link to={"/"}>
-                    <i class="bi bi-instagram"></i>
+                    <i className="bi bi-instagram"></i>
                   </Link>
                 </div>
                 <div className="social-links">
                   <Link to={"/"}>
-                    <i class="bi bi-facebook"></i>
+                    <i className="bi bi-facebook"></i>
                   </Link>
                 </div>
               </div>
@@ -89,29 +112,29 @@ const GetInTouch = () => {
             <form onSubmit={handleSubmit}>
               <div className="row mb-3">
                 <div className="col-md-6">
-                  <label htmlFor="firstName" className="form-label">
+                  <label htmlFor="firstname" className="form-label">
                     First Name
                   </label>
                   <input
                     type="text"
                     className="form-control custom-input"
-                    id="firstName"
-                    name="firstName"
-                    value={formData.firstName}
+                    id="firstname"
+                    name="firstname"
+                    value={formData.firstname}
                     onChange={handleChange}
                     required
                   />
                 </div>
                 <div className="col-md-6">
-                  <label htmlFor="lastName" className="form-label">
+                  <label htmlFor="lastname" className="form-label">
                     Last Name
                   </label>
                   <input
                     type="text"
                     className="form-control custom-input"
-                    id="lastName"
-                    name="lastName"
-                    value={formData.lastName}
+                    id="lastname"
+                    name="lastname"
+                    value={formData.lastname}
                     onChange={handleChange}
                     required
                   />
@@ -134,15 +157,15 @@ const GetInTouch = () => {
                   />
                 </div>
                 <div className="col-md-5">
-                  <label htmlFor="phone" className="form-label">
+                  <label htmlFor="phonenumber" className="form-label">
                     Phone Number
                   </label>
                   <input
                     type="tel"
                     className="form-control custom-input"
-                    id="phone"
-                    name="phone"
-                    value={formData.phone}
+                    id="phonenumber"
+                    name="phonenumber"
+                    value={formData.phonenumber}
                     onChange={handleChange}
                     required
                   />
@@ -160,9 +183,9 @@ const GetInTouch = () => {
                         className="form-check-input"
                         type="radio"
                         id="productInquiry"
-                        name="inquiryType"
+                        name="subject"
                         value="Product Inquiry"
-                        checked={formData.inquiryType === "Product Inquiry"}
+                        checked={formData.subject === "Product Inquiry"}
                         onChange={handleChange}
                         required
                       />
@@ -178,9 +201,9 @@ const GetInTouch = () => {
                         className="form-check-input"
                         type="radio"
                         id="serviceInquiry"
-                        name="inquiryType"
+                        name="subject"
                         value="Service Inquiry"
-                        checked={formData.inquiryType === "Service Inquiry"}
+                        checked={formData.subject === "Service Inquiry"}
                         onChange={handleChange}
                       />
                       <label
@@ -195,9 +218,9 @@ const GetInTouch = () => {
                         className="form-check-input"
                         type="radio"
                         id="support"
-                        name="inquiryType"
+                        name="subject"
                         value="Support"
-                        checked={formData.inquiryType === "Support"}
+                        checked={formData.subject === "Support"}
                         onChange={handleChange}
                       />
                       <label className="form-check-label" htmlFor="support">
@@ -209,9 +232,9 @@ const GetInTouch = () => {
                         className="form-check-input"
                         type="radio"
                         id="other"
-                        name="inquiryType"
+                        name="subject"
                         value="Other"
-                        checked={formData.inquiryType === "Other"}
+                        checked={formData.subject === "Other"}
                         onChange={handleChange}
                       />
                       <label className="form-check-label" htmlFor="other">
@@ -248,6 +271,9 @@ const GetInTouch = () => {
           </div>
         </div>
       </div>
+
+      {/* Toast container for displaying messages */}
+      <ToastContainer />
     </div>
   );
 };
