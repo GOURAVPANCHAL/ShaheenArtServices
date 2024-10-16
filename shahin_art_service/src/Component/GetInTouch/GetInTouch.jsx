@@ -55,7 +55,7 @@ const GetInTouch = () => {
                   </li>
                   <li>
                     <Link to={"#"}>
-                      <i class="bi bi-envelope-open-fill"></i> ansari@shaheenart.in
+                      <i class="bi bi-envelope-open-fill"></i> ansari@shaheenarts.in
                     </Link>
                   </li>
                   <li>

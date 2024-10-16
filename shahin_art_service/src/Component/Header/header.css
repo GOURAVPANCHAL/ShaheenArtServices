@@ -19,14 +19,25 @@
 .headerSocialMedia i {
   color: #d4af37;
 } */
+.navbar {
+  background: #cfa732;
+}
+.typewriter {
+  font-size: 40px;
+  color: red;
+  font-family: "Dancing Script", cursive;
+  font-weight: bold;
+  font-style: italic;
+}
 
-.nav-link{
-  color: red!important;;
+.nav-link {
+  color: white !important;
+  text-shadow: 2px 2px black;
 }
 
 .navMaain {
   display: flex;
-  gap: 3rem;
+  gap: 0rem;
 }
 
 .logo {
@@ -42,8 +53,24 @@
 }
 
 @media only screen and (max-width: 900px) {
+  .navMaain{
+   padding: 1rem !important;
+   justify-content: end !important; 
+   display: flex !important;
+  }
+  .navbar-brand{
+    width: 20%;
+  }
+  .typewriter {
+    font-size: 20px;
+    color: red;
+    font-family: "Dancing Script", cursive;
+    font-weight: bold;
+    font-style: italic;
+  }
+  
   .logo {
-    width: 50%;
+    width: 100%;
   }
 
   .navbar.hide-slider {

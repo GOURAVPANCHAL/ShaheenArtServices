@@ -1,6 +1,18 @@
 .hero-slider {
   position: relative;
   width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
 }
 
 .bannerContent.hero {
@@ -18,21 +30,22 @@
 .banner {
   background-image: url(../../Images/banner.png);
   width: 100%;
-  background-size: contain;
   background-size: cover;
   text-align: center;
   padding: 7rem 10rem;
 }
 
 .bannerLogo {
-  height: 200px;
-  width: 200px;
+  background-color: #0000005c;
+  padding: 1rem 1rem;
+  width: 100%;
+  text-align: center;
 }
 
 .bannerHeading {
   font-family: "Dancing Script", cursive;
   color: red;
-  text-shadow: 2px 2px 5px #d4af37d7;
+  text-shadow: 2px 2px 5px #d4af3780;
   font-size: 5rem;
   margin-top: 2rem;
 }
@@ -43,20 +56,20 @@
   border-radius: 1rem;
 }
 
-@media only screen and (max-width: 900px) {
-  .banner{
-    padding: 0;
-  }
-  .hero-slider{
-    display: flex;
-    justify-content: center;
-  }
-  .bannerContent {
-    padding: 1rem 1rem;
+.fixedbutton {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 2;
+}
+
+@media only screen and (max-width: 600px) {
+  .bannerLogo .logo1 {
+    width: 50%;
   }
 
-  .bannerLogo {
-    display: none;
+  .bannerLogo .logo2 {
+    width: 100%;
   }
 
   .bannerHeading {
@@ -66,15 +79,31 @@
   .bannerSubHeading {
     font-size: 1rem;
   }
+}
+
+@media only screen and (max-width: 900px) {
+  .banner {
+    padding: 0;
+  }
+
+  .hero-slider {
+    display: flex;
+    justify-content: center;
+  }
 
   .bannerContent.hero {
     position: relative;
     transform: none;
-    padding: 0rem;
+    padding: 1rem;
     top: 0;
     left: 0;
   }
-  /* .slick-slider.slick-initialized {
-    display: none;
-  } */
+
+  .bannerHeading {
+    font-size: 3rem;
+  }
+
+  .bannerSubHeading {
+    font-size: 1rem;
+  }
 }

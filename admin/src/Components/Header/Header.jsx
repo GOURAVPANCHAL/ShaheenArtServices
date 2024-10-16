@@ -1,56 +1,89 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-import './Header.css'
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
 
-const Header = () => {
-  const [sidetoggle,setSideToggle] = useState(false)
+import Header from '../Header/Header';
+import Dashboard from '../../Pages/Dashboard/Dashboard';
+import AllCategory from '../../Pages/Category/AllCategory';
+import AddCategory from '../../Pages/Category/AddCategory';
+import EditCategory from '../../Pages/Category/EditCategory';
+import AllProduct from '../../Pages/Products/AllProduct';
+import AddProduct from '../../Pages/Products/AddProduct';
+import EditProduct from '../../Pages/Products/EditProduct';
+import AllBanner from '../../Pages/Banners/AllBanner';
+import AddBanner from '../../Pages/Banners/AddBanner';
+import EditBanner from '../../Pages/Banners/EditBanner';
+import AllShopBanner from '../../Pages/ShopBanner/AllShopBanner';
+import AddShopBanner from '../../Pages/ShopBanner/AddShopBanner';
+import EditShopBanner from '../../Pages/ShopBanner/EditShopBanner';
+import AllTags from '../../Pages/Tags/AllTags';
+import AddTag from '../../Pages/Tags/AddTag';
+import EditTag from '../../Pages/Tags/EditTag';
+import AllVoucher from '../../Pages/Vouchers/AllVoucher';
+import CreateVoucher from '../../Pages/Vouchers/AddVoucher';
+import AllOrder from '../../Pages/Orders/AllOrder';
+import EditOrder from '../../Pages/Orders/EditOrder';
+import AllUsers from '../../Pages/Users/AllUsers';
+import Login from "../auth/Login"; // Login page component
 
-  const handletoggleBtn =()=>{
-    setSideToggle(!sidetoggle)
-  }
+const Home = () => {
+  // Check if the user is logged in by reading sessionStorage
+  const isLoggedIn = sessionStorage.getItem("login") === "true";
+
   return (
     <>
-      <header>
-        <div className="top-head">
-          <div className="right">
-            <h2>Shaheen Art Admin Panel</h2>
-            <div className="bar" onClick={handletoggleBtn}>
-              <i class="fa-solid fa-bars"></i>
-            </div>
-          </div>
-          <div className="left">
-            <a href="" target="_blank">
-              <i class="fa-solid fa-globe"></i>
-              Go To Website
-            </a>
+      {/* Conditionally render the header only if the user is logged in */}
+      {isLoggedIn && <Header />}
 
-            <div className="logout">
-              Log Out <i class="fa-solid fa-right-from-bracket"></i>
-            </div>
-          </div>
+      <div className="rightside">
+        {/* Conditional rendering based on login status */}
+        {isLoggedIn ? (
+          <Routes>
+            {/* Dashboard */}
+            <Route path="/dashboard" element={<Dashboard />} />
 
-        </div>
+            {/* Category Routes */}
+            <Route path="/all-category" element={<AllCategory />} />
+            <Route path="/add-category" element={<AddCategory />} />
+            <Route path="/edit-category/:id" element={<EditCategory />} />
 
-        <div className={`rightNav ${sidetoggle ? "active" : "" } `  }>
-          <ul>
-            <li><Link to="/dashboard" onClick={handletoggleBtn}> <i class="fa-solid fa-gauge"></i> Dashboard</Link></li>
-            <li><Link to="/all-category" onClick={handletoggleBtn}> <i class="fa-solid fa-tag"></i> Manage Category</Link></li>
-            <li><Link to="/all-products" onClick={handletoggleBtn}> <i class="fa-solid fa-layer-group"></i> Manage Product</Link></li>
-            {/* <li><Link to="/all-tags" onClick={handletoggleBtn}> <i class="fa-solid fa-tag"></i> Manage Tags</Link></li>
-            <li><Link to="/all-banners" onClick={handletoggleBtn}> <i class="fa-regular fa-images"></i> Manage Banners</Link></li>
-            <li><Link to="/all-shop-banners" onClick={handletoggleBtn}> <i class="fa-brands fa-unsplash"></i> Manage Shop Banners</Link></li>
-            <li><Link to="/all-voucher" onClick={handletoggleBtn}> <i class="fa-brands fa-cc-discover"></i> Manage Voucher</Link></li>
-            <li><Link to="/all-users" onClick={handletoggleBtn}> <i class="fa-solid fa-user"></i> All Users</Link></li>
-            <li><Link to="/all-orders" onClick={handletoggleBtn}> <i class="fa-solid fa-truck-arrow-right"></i> Manage Orders</Link></li> */}
-            
-            <button className='logout mb-5'>Log Out <i class="fa-solid fa-right-from-bracket"></i></button>
+            {/* Product Routes */}
+            <Route path="/all-products" element={<AllProduct />} />
+            <Route path="/add-product" element={<AddProduct />} />
+            <Route path="/edit-product/:id" element={<EditProduct />} />
 
-          </ul>
-        </div>
+            {/* Users */}
+            <Route path="/all-users" element={<AllUsers />} />
 
-      </header>
+            {/* Voucher Routes */}
+            <Route path="/all-voucher" element={<AllVoucher />} />
+            <Route path="/add-voucher" element={<CreateVoucher />} />
+
+            {/* Tag Routes */}
+            <Route path="/all-tags" element={<AllTags />} />
+            <Route path="/add-tag" element={<AddTag />} />
+            <Route path="/edit-tag/:id" element={<EditTag />} />
+
+            {/* Banner Routes */}
+            <Route path="/all-banners" element={<AllBanner />} />
+            <Route path="/add-banner" element={<AddBanner />} />
+            <Route path="/edit-banner/:id" element={<EditBanner />} />
+
+            {/* Shop Banner Routes */}
+            <Route path="/all-shop-banners" element={<AllShopBanner />} />
+            <Route path="/add-shop-banner" element={<AddShopBanner />} />
+            <Route path="/edit-shop-banner/:id" element={<EditShopBanner />} />
+
+            {/* Order Routes */}
+            <Route path="/all-orders" element={<AllOrder />} />
+            <Route path="/edit-order/:id" element={<EditOrder />} />
+          </Routes>
+        ) : (
+          // If user is not logged in, display login component instead
+          <Login />
+        )}
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default Header
+export default Home;

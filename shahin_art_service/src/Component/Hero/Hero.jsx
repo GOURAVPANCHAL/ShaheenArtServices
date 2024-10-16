@@ -1,51 +1,44 @@
 import React, { useEffect } from "react";
 import "./hero.css";
-import banner1 from "../../Images/banner1.jpg";
-import banner2 from "../../Images/banner2.jpg";
-import banner3 from "../../Images/banner3.jpg";
-import banner4 from "../../Images/banner4.jpg";
-import banner5 from "../../Images/banner5.jpg";
-
-import Slider from "react-slick";
+import logo from "../../Images/bannerLogo.png";
+import output from "../../Images/output.png";
 import { Link } from "react-router-dom";
-
+import video from '../../Images/backgrond-video.mp4'
 const Hero = () => {
-  useEffect(()=>{
+  useEffect(() => {
     window.scrollTo({
-      top:0,
-      behavior:'smooth'
-    })
-  })
-  var settings = {
-    dots: true,
-    infinite: true,
-    autoplay: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
 
   return (
     <>
-      <div>
-        <Slider {...settings}>
-          <div>
-            <img src={banner1} className="w-100" alt="banner 1" />
-          </div>
-          <div>
-            <img src={banner2} className="w-100" alt="banner 2" />
-          </div>
-          <div>
-            <img src={banner3} className="w-100" alt="banner 3" />
-          </div>
-          <div>
-            <img src={banner4} className="w-100" alt="banner 4" />
-          </div>
-        </Slider>
-      </div>
+      <div className="hero-slider">
+        {/* Background Video */}
+        <video
+          className="background-video"
+          autoPlay
+          muted
+          loop
+          playsInline
+          src={video} // Replace with your video path
+        />
 
-      <div className="fixedbutton">
-        <Link to={"tel:919319846114"}></Link>
+        <div className="bannerLogo">
+          <img src={logo} className="logo1" alt="banner logo" />
+          <img src={output} className="logo2" alt="output logo" />
+          <marquee behavior="scroll" direction="left">
+            <h3 className="text-white">
+              Since 1990, we have proudly exported our unique creations
+              worldwide, establishing ourselves as a leader in the industry.
+            </h3>
+          </marquee>
+        </div>
+
+        <div className="fixedbutton">
+          <Link to={"tel:919319846114"}></Link>
+        </div>
       </div>
     </>
   );

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import logo from "../../Images/logo.png";
 import "./header.css";
 import { Link, useLocation } from "react-router-dom";
-
+import Typewriter from "typewriter-effect";
 const Header = () => {
   const [isCollapsed, setIsCollapsed] = useState(true);
 
@@ -13,7 +13,7 @@ const Header = () => {
   };
 
   const location = useLocation();
-  const isHomePage = location.pathname === '/';
+  const isHomePage = location.pathname === "/";
 
   return (
     <>
@@ -26,11 +26,25 @@ const Header = () => {
         <i class="bi bi-whatsapp"></i>
       </a>
 
-      <nav className={`navbar navbar-expand-lg navbar-light bg-light ${isHomePage ? "hide-slider" : ""}`}>
+      <nav
+        className={`navbar navbar-expand-lg navbar-light ${
+          isHomePage ? "hide-slider" : ""
+        }`}
+      >
         <div className="navMaain container">
-          <Link className="navbar-brand" to="/">
+          {/* <Link className="navbar-brand" to="/">
             <img src={logo} className="logo" alt="logo" />
-          </Link>
+          </Link> */}
+          {/* <div className="typewriter">
+            <Typewriter
+              options={{
+                strings: ["Shaheen Arts Service"],
+                autoStart: true,
+                loop: true,
+                deleteSpeed: 80,
+              }}
+            />
+          </div> */}
           <button
             className="navbar-toggler"
             type="button"

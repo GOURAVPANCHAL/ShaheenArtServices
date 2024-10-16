@@ -69,11 +69,11 @@ const Footer = () => {
               <i
                 class="bi bi-geo-alt-fill ml-3"
                 style={{ color: "#d4af37" }}
-              ></i>{" "}
+              ></i>
               <strong>Address:</strong>
             </p>
             <p>
-              {" "}
+              
               2318, Mandir Street, Kucha Chellan, Darya Ganj, Delhi, 110002
             </p>
             <p className="d-flex gap-2 m-0">
@@ -91,7 +91,7 @@ const Footer = () => {
               ></i>
               <strong>Email:</strong>
             </p>
-            <p>ansari@shaheenart.in</p>
+            <p>ansari@shaheenarts.in</p>
           </div>
         </div>
         <hr />

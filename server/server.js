@@ -12,6 +12,7 @@ const { connectDb } = require("./Db/ConnectDb");
 const categoryRouter = require("./Routes/CategoryRouter");
 const multerErrorHandler = require("./Middlewares/FileError");
 const productRouter = require("./Routes/ProductRouter");
+const contactRouter = require("./Routes/ContactRouter");
 
 const app = express();
 const PORT = process.env.PORT || 8000;
@@ -43,6 +44,7 @@ app.set(express.static("Public"))
 
 app.use("/api", categoryRouter)
 app.use("/api", productRouter)
+app.use("/api", contactRouter)
 
 app.use(multerErrorHandler);
 
